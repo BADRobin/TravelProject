@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="apple-touch-icon" type="image/png" href="/icons/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+    <link rel="shortcut icon" type="image/x-icon" href="/icons/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.png">
+    <link rel="mask-icon" type="image/x-icon" href="/icons/svg/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
+    <title>Admin Login Form</title>
+    <link rel="stylesheet" href="/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+<section class="hero is-primary is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                    <form action="/login" class="box" method="post">
+                        <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+                        <div class="field">
+                            <label class="label">Nickname</label>
+                            <div class="control has-icons-left">
+                                <input name="username" type="text" placeholder="e.g. bobsmith" class="input" required>
+                                <span class="icon is-small is-left">
+                        <i class="fa fa-envelope"></i>
+                    </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Password</label>
+                            <div class="control has-icons-left">
+                                <input name="password" type="password" placeholder="*******" class="input" required>
+                                <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="checkbox">
+                                <input name="remember-me" type="checkbox">
+                                Remember me
+                            </label>
+                        </div>
+                        <div class="field">
+                            <button class="button is-success" type="submit">Login
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Travel Blog</title>
+    <link rel="stylesheet" href="/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/creator-card.css">
+</head>
+
+<body>
+<header th:insert="~{fragments/header.html :: header}"></header>
+
+<main>
+    <section class="hero is-info is-medium">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Meet the Creators
+                </h1>
+                <h2 class="subtitle">
+                    Discover the talented individuals behind this blog.
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="title is-3 has-text-centered">Our Team</h2>
+            <div class="columns is-multiline is-centered">
+
+                <div class="column is-4" th:each="creator : ${creators}">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-square">
+                                <div class="creator-image" style="background-image: url('/* Fallback Image */');"
+                                     th:style="'background-image: url(' + ${creator.imageUrl} + ');'">
+                                </div>
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4" th:text="${creator.name}">Creator Name</p>
+                                    <p class="subtitle is-6" th:text="${creator.role}">Creator Role</p>
+                                </div>
+                            </div>
+                            <div class="content" th:text="${creator.bio}">
+                                Brief description about the creator's role or background.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add More Creator Cards Dynamically -->
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer th:insert="~{fragments/footer.html :: footer}"></footer>
+</body>
+
+</html>

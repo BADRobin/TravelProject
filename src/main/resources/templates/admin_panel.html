@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<header th:replace="~{fragments/header.html :: header}"> </header>
+<h1>Admin Dashboard</h1>
+<a href="/logout">Logout</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Route</th>
+        <th>Approved</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="point : ${vacationPoints}">
+        <td th:text="${point.title}"></td>
+        <td th:text="${point.description}"></td>
+        <td th:text="${point.latitude}"></td>
+        <td th:text="${point.longitude}"></td>
+        <td th:text="${point.route}"></td>
+        <td th:text="${point.approved ? 'Yes' : 'No'}"></td>
+        <td>
+            <form method="POST" action="/delete">
+                <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+                <input type="hidden" name="id" th:value="${point.id}">
+                <button type="submit">Delete</button>
+            </form>
+            <form th:if="${!point.approved}" method="POST" action="/approve">
+                <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+                <input type="hidden" name="id" th:value="${point.id}">
+                <button type="submit">Approve</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
