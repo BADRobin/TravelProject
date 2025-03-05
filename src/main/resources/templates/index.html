@@ -31,16 +31,18 @@
         <div class="column" th:each="point : ${vacationPoints}">
             <div class="card">
 
-              
-                <div class="card-image">
-                    <figure class="image is-4by3" >
-                        <img
-                                th:src="@{'/photos/'+${point.getPhotos().get(0)}}"
-                                alt="Placeholder image"
-                        />
-                    </figure>
 
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img th:if="${not #lists.isEmpty(point.photos)}"
+                             th:src="@{'/photos/' + ${point.photos[0]}}"
+                             alt="Travel photo"/>
+                        <img th:unless="${not #lists.isEmpty(point.photos)}"
+                             src="https://picsum.photos/640/480"
+                             alt="No photo available"/>
+                    </figure>
                 </div>
+
                 <div class="card-content">
                     <div class="media">
                         <div class="media-content">
