@@ -16,7 +16,7 @@ This application streamlines the process of managing and showcasing travel exper
 
 ## Technologies Used
 
--   **Backend:** Java 23, Spring Boot 3.5.0, Spring Security, Hibernate
+-   **Backend:** Java 21, Spring Boot 3.3.5, Spring Security, Hibernate
 -   **Frontend:** HTML, CSS, JavaScript
 -   **Database:** MySQL
 -   **Build Tool:** Maven
